@@ -1,0 +1,82 @@
+@import '../../styles/variables.scss';
+
+.button {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 18px;
+  height: 36px;
+  min-width: 80px;
+  font-family: inherit;
+  font-size: 13px;
+  color: inherit;
+  border-width: 2px;
+  border-style: solid;
+  border-color: transparent;
+  border-radius: 4px;
+  box-sizing: border-box;
+  text-decoration: none;
+  cursor: pointer;
+
+  &_size_small {
+    padding: 0 11px;
+    height: 28px;
+  }
+
+  &_textless {
+    min-width: unset;
+    padding: 0;
+    width: 36px;
+  }
+
+  &_size_small#{&}_textless {
+    padding: 0;
+    width: 28px;
+  }
+
+  &_theme_control {
+    background-color: $color-bg-control;
+
+    &:hover {
+      background-color: $color-bg-control-hovered;
+    }
+
+    &:focus {
+      background-color: $color-bg-control;
+      border-color: $color-border-focused;
+    }
+  }
+
+  &_theme_action {
+    background-color: $color-bg-action;
+
+    &:hover {
+      background-color: $color-bg-action-hovered;
+    }
+
+    &:focus {
+      background-color: $color-bg-action;
+      border-color: $color-border-action-focused;
+    }
+  }
+
+  &:disabled {
+    background-color: $color-bg-disabled;
+    color: transparentize($color-text-disabled, .5);
+  }
+
+  &__label {
+    white-space: nowrap;
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+  }
+
+  &__label + &__icon {
+    margin-left: -6px;
+  }
+}

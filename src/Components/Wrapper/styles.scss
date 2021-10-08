@@ -1,0 +1,18 @@
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins';
+
+.wrapper {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 0 16px;
+  width: 100%;
+  max-width: 320px;
+  box-sizing: border-box;
+
+  @include media-breakpoint-up(md) {    
+    max-width: 860px;
+  }
+}
