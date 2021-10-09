@@ -1,11 +1,13 @@
+import React from 'react';
 import './styles.scss';
 
-function Modal({show, children}) {
+// eslint-disable-next-line react/prop-types
+function Modal({ show, children }) {
   if (!show) {
     return null;
   }
 
-  return ( 
+  return (
     <div className="modal">
       <div className="modal__dialog">
         {children}

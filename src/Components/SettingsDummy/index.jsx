@@ -1,17 +1,18 @@
-import './styles.scss';
+import React from 'react';
 import Button from '../Button';
-import {ReactComponent as Logo} from '../../icons/logo.svg';
+import { ReactComponent as Logo } from '../../icons/logo.svg';
+import './styles.scss';
 
 function SettingsDummy() {
-  return ( 
+  return (
     <div className="settings-dummy">
       <div className="settings-dummy__icon">
-        <Logo></Logo>
+        <Logo />
       </div>
       <div className="settings-dummy__text">Configure repository connection and&nbsp;synchronization settings</div>
       <Button href="/settings" theme="action">Open settings</Button>
     </div>
-   );
+  );
 }
 
 export default SettingsDummy;

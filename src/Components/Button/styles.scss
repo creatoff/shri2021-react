@@ -1,74 +1,126 @@
 @import '../../styles/variables.scss';
 
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins';
+
 .button {
+  position: relative;
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
   justify-content: center;
-  gap: 6px;
   padding: 0 18px;
   height: 36px;
   min-width: 80px;
   font-family: inherit;
   font-size: 13px;
+  background: transparent;
+  border: none;
   color: inherit;
-  border-width: 2px;
-  border-style: solid;
-  border-color: transparent;
-  border-radius: 4px;
-  box-sizing: border-box;
   text-decoration: none;
   cursor: pointer;
+  outline: none;
+  box-sizing: border-box;
+  z-index: 1;
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border-color: transparent;
+    z-index: -1;
+  }
 
   &_size_small {
-    padding: 0 11px;
+    padding: 0 13px;
     height: 28px;
   }
 
-  &_textless {
-    min-width: unset;
-    padding: 0;
-    width: 36px;
+  &_size_small#{&}_collapsible {
+    @include media-breakpoint-down(sm) {
+      padding: 0;
+      min-width: 28px;
+    }
   }
 
-  &_size_small#{&}_textless {
-    padding: 0;
-    width: 28px;
+  &_size_small#{&}_collapsed {
+      padding: 0;
+      min-width: 28px;
   }
 
   &_theme_control {
-    background-color: $color-bg-control;
+    &::before {
+      background-color: $color-bg-control;
+    }
 
-    &:hover {
+    &:hover::before {
       background-color: $color-bg-control-hovered;
     }
 
-    &:focus {
+    &:focus::before{
       background-color: $color-bg-control;
       border-color: $color-border-focused;
     }
   }
 
   &_theme_action {
-    background-color: $color-bg-action;
+    &::before {
+      background-color: $color-bg-action;
+    }
 
-    &:hover {
+    &:hover::before {
       background-color: $color-bg-action-hovered;
     }
 
-    &:focus {
+    &:focus::before{
       background-color: $color-bg-action;
       border-color: $color-border-action-focused;
     }
   }
 
-  &:disabled {
-    background-color: $color-bg-disabled;
-    color: transparentize($color-text-disabled, .5);
+  &_theme_pseudo {
+    &::before {
+      background-color: $color-bg-base;
+      border-width: 1px;
+      border-color: transparentize($black-500, 0.8);
+    }
+
+    &:hover::before {
+      border-color: transparentize($black-500, 0.6);
+    }
+
+    &:focus::before{
+      border-color: $color-border-focused;
+      border-width: 2px;
+    }
+  }
+
+  &:disabled::before {
+    background-color: $color-bg-disabled !important;
+    color: transparentize($color-text-disabled, .5) !important;
   }
 
   &__label {
     white-space: nowrap;
+  }
+  
+  &_size_small#{&}_collapsible &__label {
+    @include media-breakpoint-down(sm) {
+      display: none;
+    }
+  }
+  
+  &_size_small#{&}_collapsed &__label {
+    display: none;
   }
 
   &__icon {
@@ -77,6 +129,17 @@
   }
 
   &__label + &__icon {
+    margin-right: 6px;
     margin-left: -6px;
+  }
+
+  &_collapsible &__label + &__icon {
+    @include media-breakpoint-down(sm) {
+      margin: 0;
+    }
+  }
+
+  &_collapsed &__label + &__icon {
+    margin: 0;
   }
 }

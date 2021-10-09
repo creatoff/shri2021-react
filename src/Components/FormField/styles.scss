@@ -1,11 +1,18 @@
 @import '../../styles/variables.scss';
 
 .form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px 8px;
   margin: 12px 0;
+
+  &_layout_inline {
+    flex-direction: row;
+    align-items: center;
+  }
 
   &__label {
     display: block;
-    margin-bottom: 6px;
     font-size: 13px;
     line-height: 18px;
     letter-spacing: 0.06px;
@@ -38,6 +45,10 @@
     &::placeholder {
       color: transparentize($color-text, .8);
     }
+  }
+
+  &_layout_inline &__input {
+    width: 52px;
   }
 
   &__clear {

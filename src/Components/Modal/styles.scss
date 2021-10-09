@@ -10,6 +10,7 @@
   height: 100vh;
   background-color: rgba(0,0,0,.4);
   box-sizing: border-box;
+  z-index: 1000;
 
   &__dialog {
     padding: 20px;

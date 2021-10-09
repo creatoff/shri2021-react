@@ -1,17 +1,19 @@
+@import '../../styles/variables.scss';
+
 @import 'node_modules/bootstrap/scss/functions';
 @import 'node_modules/bootstrap/scss/variables';
 @import 'node_modules/bootstrap/scss/mixins';
 
 .footer {
   padding: 8px 0;
-  background-color: #f0f2f3;
-  color: #7f8285;
+  background-color: $blue-grey-50;
+  color: $blue-grey-500;
 
   &__inner {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(sm) {
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
@@ -31,7 +33,7 @@
     text-decoration: none;
 
     &:hover {
-      color: #e00000;
+      color: $red-600;
     }
   }
 }

@@ -1,11 +1,14 @@
 @import '../../styles/variables.scss';
 
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins';
+
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 0;
-  border-bottom: 1px solid #ddd;
 
   &__inner {
     display: flex;
@@ -14,12 +17,12 @@
     gap: 16px;
   }
 
-  &__title {
+  &__title, &__logo {
     font-size: 24px;
     font-weight: 500;
+  }
 
-    &_default {
-      color: $blue-grey-500;
-    }
+  &__logo {
+    color: $blue-grey-500;
   }
 }
