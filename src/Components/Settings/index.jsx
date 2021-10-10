@@ -6,7 +6,7 @@ import Toolbar from '../Toolbar';
 import Button from '../Button';
 
 // eslint-disable-next-line react/prop-types
-function Settings({ state, handleSubmit: extractState, afterSubmit }) {
+function Settings({ settings, handleSubmit: extractState, afterSubmit }) {
   const fields = [
     {
       label: 'GitHub repository',
@@ -16,19 +16,18 @@ function Settings({ state, handleSubmit: extractState, afterSubmit }) {
     },
     {
       label: 'Build command',
-      name: 'build_command',
+      name: 'buildCommand',
       required: true,
     },
     {
       label: 'Main branch',
-      name: 'main_branch',
+      name: 'mainBranch',
     },
     {
       layout: 'inline',
       label: 'Synchronize every',
       label2: 'minutes',
-      name: 'period',
-      value: '10',
+      name: 'syncTime',
       type: 'number',
       min: 1,
       max: 60,
@@ -77,7 +76,7 @@ function Settings({ state, handleSubmit: extractState, afterSubmit }) {
       {fields.map((field) => (
         <FormField
           key={field.name}
-          value={(state && state[field.name]) || ''}
+          value={(settings && settings[field.name]) || ''}
           // eslint-disable-next-line react/jsx-props-no-spreading
           {...field}
         />

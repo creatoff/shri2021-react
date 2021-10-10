@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import {
   Switch, Route, useHistory, withRouter,
 } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { saveSettings } from '../../store/actions';
 
 import './styles.scss';
 import Layout from '../Layout';
@@ -12,13 +14,11 @@ import NewBuild from '../NewBuild';
 import History from '../History';
 
 function App() {
-  // const getSettings = () => ({
-  //   repository: '',
-  //   build_command: 'npm ci && npm run build',
-  //   main_branch: 'master',
-  // });
+  const settings = useSelector((state) => state?.settings);
 
-  const [settings, setSettings] = useState(null);
+  const dispatch = useDispatch();
+  const handleSaveSettings = (values) => dispatch(saveSettings(values));
+
   const [isModal, toggleModal] = useState(false);
 
   const history = useHistory();
@@ -29,8 +29,8 @@ function App() {
         <Switch>
           <Route exact path="/settings">
             <Settings
-              state={settings}
-              handleSubmit={setSettings}
+              settings={settings}
+              handleSubmit={handleSaveSettings}
               afterSubmit={() => history.push('/')}
             />
           </Route>
