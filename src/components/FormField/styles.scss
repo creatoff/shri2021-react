@@ -1,0 +1,65 @@
+@import '../../styles/variables.scss';
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px 8px;
+  margin: 12px 0;
+
+  &_layout_inline {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__label {
+    display: block;
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: 0.06px;
+  }
+
+  &__box {
+    position: relative;
+    background: $color-bg-base;
+    border: 2px solid $color-bg-heavy;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  &_focused &__box {
+    border-color: $color-border-focused;
+  }
+
+  &__input {
+    padding: 0 11px;
+    width: 100%;
+    height: 34px;
+    font-family: inherit;
+    border: none;
+    box-sizing: border-box;
+
+    &:focus {
+      outline: none;
+    }
+    
+    &::placeholder {
+      color: transparentize($color-text, .8);
+    }
+  }
+
+  &_layout_inline &__input {
+    width: 52px;
+  }
+
+  &__clear {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+  }
+}
