@@ -1,0 +1,11 @@
+.wrapper {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 0 16px;
+  width: 100%;
+  min-width: 320px;
+  max-width: 860px;
+  box-sizing: border-box;
+}

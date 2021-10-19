@@ -1,0 +1,107 @@
+@import '../../styles/variables.scss';
+
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins';
+
+.build-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 12px 16px 36px;
+  background: $color-bg-base;
+  box-shadow: 0px 0px 1px rgba(67, 68, 69, 0.3), 0px 1px 1px rgba(67, 68, 69, 0.3);
+  border-radius: 6px;
+  @include media-breakpoint-up(sm) {
+    padding: 12px 24px 12px 56px;
+    flex-direction: row;
+
+    &:hover {
+      box-shadow: 0px 0px 1px rgba(67, 68, 69, 0.3), 0px 2px 8px rgba(67, 68, 69, 0.3);
+      cursor: pointer;
+    }
+  }
+
+  &__status {
+    position: absolute;
+    top: 16px;
+    left: 12px;
+    width: 16px;
+    height: 16px;
+    @include media-breakpoint-up(sm) {
+      top: 12px;
+      left: 24px;
+      width: 24px;
+      height: 24px;
+
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  &__main {
+    flex: 1 1 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  &__head {
+    flex: 1 1 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 4px;
+  }
+
+  &__message {
+    font-size: 15px;
+  }
+
+  &__body {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  &__foot {
+    flex: 0 1 0px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 8px;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid $blue-grey-50;
+    white-space: nowrap;
+    opacity: .65;
+    @include media-breakpoint-up(sm) {
+      margin-top: 0;
+      padding-top: 0;
+      border: 0;
+    }
+  }
+
+  &__id {
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 500;
+    @include media-breakpoint-up(sm) {
+      font-size: 18px;
+      line-height: 20px;
+    }
+  }
+
+  &_status_success &__id {
+    color: $green-500;
+  }
+
+  &_status_pending &__id {
+    color: $orange-500;
+  }
+
+  &_status_failure &__id {
+    color: $red-500;
+  }
+}
